@@ -121,3 +121,18 @@ bool Board::removeByName(const std::string& name) {
     return false;
 
 }
+std::vector<std::string> Board::findByColor(const std::string& color) const {
+    std::vector<std::string> matches;
+
+    if (!head) return matches;
+
+    Node* cur = head;
+    do {
+        if (cur->data.color == color) {
+            matches.push_back(cur->data.name);
+        }
+        cur = cur->next;
+    } while (cur != head);
+
+    return matches;
+}

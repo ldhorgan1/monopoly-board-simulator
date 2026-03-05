@@ -24,7 +24,12 @@ int main() {
     cout << "Size now: " << b.getSize() << "\n";
     b.printFromCurrent(10);
     cout << "Current board size: " << b.getSize() << "\n";
+    cout << "\nFinding Red properties:\n";
+    vector<string> reds = b.findByColor("Red");
 
+    for (const auto& name : reds) {
+        cout << name << "\n";
+    }
     int before = b.getSize();
     for (int i = before; i < 45; i++) {
         Space s;
