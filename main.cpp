@@ -6,6 +6,9 @@
 #include <ctime>
 
 using namespace std;
+int rollDice2to12() {
+    return (rand() % 6 + 1) + (rand() % 6 + 1);
+}
 
 int main() {
     srand((unsigned)time(nullptr));
@@ -53,7 +56,7 @@ int main() {
 
     cout << "\n== Playable Simulation (10 turns) ===\n";
     for (int turn =1; turn <= 10; turn++) {
-        int roll = (rand()% 11)+2;
+        int roll = rollDice2to12();
         b.move(roll);
 
         Space landed = b.getCurrentSpace();
