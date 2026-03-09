@@ -12,7 +12,8 @@
 struct Space {
     std::string name;
     std::string color;
-    std::string type;
+    std::string value;
+    std::string rent;
 };
 
 struct Node {

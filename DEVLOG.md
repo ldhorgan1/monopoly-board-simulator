@@ -50,14 +50,14 @@ Each entry may be one of the following:
 **Commit(s):**
 ---
 ### Entry 4
-**Date:** YYYY-MM-DD
-**Entry Type:** Bug Fix / Edge Case / Engineering Decision
-**Task worked on:**
-**Issue or decision:**
-**Error message / symptom (if applicable):**
-**What I tried:**
-**Fix / resolution (or final decision):**
-**Commit(s):**
+**Date:** 2025-03-06
+**Entry Type:** Engineering Decision
+**Task worked on:** dice logic
+**Issue or decision:** I originally had the dice roll use the code rand() % 11+2, so that it would random number 2-12 but the distribution. is not accurate to dice.
+**Error message / symptom (if applicable):** no error message
+**What I tried:** I tried looking at it as two dices individulally 
+**Fix / resolution (or final decision):** changed it to return (rand()%6+1)+(rand()%6+1);
+**Commit(s):** dice roll fully working
 ---
 ### Entry 5
 **Date:** YYYY-MM-DD

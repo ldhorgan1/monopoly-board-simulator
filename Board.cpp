@@ -51,7 +51,10 @@ void Board::printFromCurrent(int count) const {
 
     Node* cur = player;
     for (int i = 0; i < count; i++) {
-        std::cout << cur->data.name << " (" << cur->data.type << ")\n";
+        std::cout << cur->data.name
+        << " | Value: " << cur->data.value
+        << " |Rent: " << cur->data.rent
+        << " [" << cur->data.color << "]\n";
         cur = cur->next;
     }
 }
