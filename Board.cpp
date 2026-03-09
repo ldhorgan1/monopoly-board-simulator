@@ -1,5 +1,20 @@
 #include "Board.h"
 
+
+Space::Space() : name(""), color(""), value(0), rent(0) {}
+
+Space::Space(string name, string color, int value, int rent)
+    : name(name), color(color), value(value), rent(rent) {}
+
+bool Space::isEqual(const Space& other) const {
+    return name == other.name;
+}
+
+void Space::print() const {
+    cout << name << " | " << color
+         << " | $" << value << " | Rent " << rent;
+}
+
 Board::Board()
     : head(nullptr), tail(nullptr), player(nullptr), size(0), goPasses(0){}
 
@@ -63,7 +78,7 @@ void Board::printFromCurrent(int count) const {
 }
 
 Space Board::getCurrentSpace() const {
-    if (!player) return Space{"","",""};
+    if (!player) return Space{"","", 0, 0};
     return player->data;
 }
 void Board::move(int steps) {

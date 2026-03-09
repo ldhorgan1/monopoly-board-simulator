@@ -9,11 +9,22 @@
 #include <vector>
 #include <string>
 
-struct Space {
-    std::string name;
-    std::string color;
-    std::string value;
-    std::string rent;
+
+using namespace std;
+
+
+class Space {
+    public:
+    string name;
+    string color;
+    int value;
+    int rent;
+
+    Space();
+    Space(string name, string color, int value, int rent);
+
+    bool isEqual(const Space& other)const;
+    void print() const;
 };
 
 struct Node {
