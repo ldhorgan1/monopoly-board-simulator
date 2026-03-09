@@ -59,20 +59,23 @@ int Board::addMany(const std::vector<Space>& spaces) {
 }
 
 void Board::printFromCurrent(int count) const {
-    if (!player){
-        std::cout << "Board empty\n";
+    if (!player || !head || count <= 0) {
+        cout << "(board empty)\n";
         return;
     }
 
     Node* cur = player;
     for (int i = 0; i < count; i++) {
-        std::cout << cur->data.name
-        << " | Value: " << cur->data.value
-        << " |Rent: " << cur->data.rent
-        << " [" << cur->data.color << "]\n";
+        cout << i << ". "
+             << cur->data.name << " | "
+             << cur->data.color << " | $"
+             << cur->data.value << " | Rent "
+             << cur->data.rent << "\n";
+
         cur = cur->next;
     }
 }
+
    int Board::getGoPasses() const {
     return goPasses;
 }
@@ -85,12 +88,14 @@ void Board::move(int steps) {
     if (!player || size == 0) return;
 
     for (int i = 0; i < steps; i++) {
-        player = player->next;
-        if (player == head) {
-            goPasses++;
+        if (player == tail) {
+            goPasses++;   // crossing GO
         }
+        player = player->next;
     }
 }
+
+
 
 int Board::getSize() const {
     return size;
